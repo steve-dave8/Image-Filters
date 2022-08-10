@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showMenu: boolean = false;
   
   toggleMenu(event : Event): void {
     let menuBtnClasses = (event.target as HTMLInputElement).classList;
@@ -20,7 +21,7 @@ export class AppComponent {
     else {
       menuBtnClasses.add("spin-open");
     }
-    // TODO: toggle if filters menu is shown
+    this.showMenu = !this.showMenu;
   }
 
 }

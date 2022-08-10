@@ -1,9 +1,9 @@
 <span class="settings" (click)="toggleMenu($event)" 
   matTooltip="Open/close filters menu."
   matTooltipPosition="right"
-  matTooltipClass="menu-tooltip"
+  matTooltipClass="right-tooltip"
 >
   <mat-icon aria-hidden="false" aria-label="filters menu" fontIcon="settings" class="gear-icon"></mat-icon>
 </span>
-<app-filters></app-filters>
+<app-filters [showFilterMenu]="showMenu"></app-filters>
 <app-canvas></app-canvas>
