@@ -13,6 +13,12 @@
     display: none;
 }
 
+.gear-icon {
+    height: 32px;
+    width: 32px;
+    font-size: inherit;
+}
+
 .spin-open {
     animation: spin-forward 1s ease-in-out;
 }
@@ -39,3 +45,9 @@
     }
 }
 /*--------------------*/
+
+@media screen and (max-width: 770px) {
+    .settings {
+        display: block;
+    }
+}

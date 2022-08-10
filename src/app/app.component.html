@@ -1,5 +1,9 @@
-<span class="settings" (click)="toggleMenu($event)">
-  <!-- TODO: use angular material to add settings icon with tooltip -->
+<span class="settings" (click)="toggleMenu($event)" 
+  matTooltip="Open/close filters menu."
+  matTooltipPosition="right"
+  matTooltipClass="menu-tooltip"
+>
+  <mat-icon aria-hidden="false" aria-label="filters menu" fontIcon="settings" class="gear-icon"></mat-icon>
 </span>
 <app-filters></app-filters>
 <app-canvas></app-canvas>

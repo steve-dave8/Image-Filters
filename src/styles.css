@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --tooltip-arrow-width: 10px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.menu-tooltip {
+    overflow: visible !important;
+    margin: 0 0 0 calc(var(--tooltip-arrow-width) + 5px) !important;
+}
+
+.menu-tooltip::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: var(--tooltip-arrow-width) solid transparent;
+    border-bottom: var(--tooltip-arrow-width) solid transparent;
+    border-right: var(--tooltip-arrow-width) solid #262626;
+    position: absolute;
+    top: calc(50% - var(--tooltip-arrow-width));
+    left: calc(-1 * var(--tooltip-arrow-width));
+    opacity: 0.7;
+}
