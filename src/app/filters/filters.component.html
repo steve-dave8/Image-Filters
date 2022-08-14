@@ -1,11 +1,324 @@
 <aside [class.reveal]="showFilterMenu">
     <p id="filter-title">Filters</p>
-    <button type="button" 
-        class="btn-base reset-btn"
-        matTooltip="Reset all filters."
-        matTooltipPosition="right"
-        matTooltipClass="right-tooltip"
+    <button type="button" class="btn-base reset-btn"
+        matTooltip="Reset all filters." matTooltipPosition="right" matTooltipClass="right-tooltip"
     >
         Reset
     </button>
+    <div class="acc-btn-container">
+        <button type="button" class="btn-base action-btn" (click)="accordion.openAll()">Expand All</button>
+        <button type="button" class="btn-base action-btn" (click)="accordion.closeAll()">Collapse All</button>
+    </div>
+    <mat-accordion multi>
+        <!--TODO: add default values for inputs-->
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>General</mat-expansion-panel-header>
+            <div class="acc-content">
+                <div>
+                    <label for="brightness">Brightness: </label>
+                    <input type="range" min="0" max="2" step="0.1" name="brightness" />
+                </div>
+                <div>
+                    <label for="contrast">Contrast: </label>
+                    <input type="range" min="0" max="2" step="0.1" name="contrast" />
+                </div>
+                <div>
+                    <label for="saturate">Saturate: </label>
+                    <input type="range" min="0" max="2" step="0.1" name="saturate" />
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Greyscales</mat-expansion-panel-header>
+            <div class="acc-content">
+                <div>
+                    <label for="grayscale">Greyscale: </label>
+                    <input type="range" min="0" max="1" step="0.1" name="grayscale" />
+                </div>
+                <label>Red Greyscale
+                    <input type="checkbox" />
+                </label>
+                <label>Green Greyscale
+                    <input type="checkbox" />
+                </label>
+                <label>Blue Greyscale
+                    <input type="checkbox" />
+                </label>
+                <label>Purple Greyscale
+                    <input type="checkbox" />
+                </label>
+                <label>Twenties
+                    <input type="checkbox" />
+                </label>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Noise / Specks</mat-expansion-panel-header>
+            <div class="acc-content">
+                <div class="filter-box">
+                    <p style="text-decoration: underline">White Noise:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox"  />
+                        </label>
+                    </div>
+                    <div style="margin-bottom: 0">
+                        <label for="whiteNoiseVal">Value: </label>
+                        <input type="range" min="12" max="90" step="1" name="whiteNoiseVal" />
+                    </div>
+                </div>
+                <label>Specks Redscale
+                    <input type="checkbox" />
+                </label>
+                <label>Green Specks
+                    <input type="checkbox" />
+                </label>
+                <label>Red Casino
+                    <input type="checkbox" />
+                </label>
+                <label>Yellow Casino
+                    <input type="checkbox" />
+                </label>
+                <label>Matrix
+                    <input type="checkbox" />
+                </label>
+                <label>Eclectic
+                    <input type="checkbox" />
+                </label>
+                <label>Cosmic
+                    <input type="checkbox" />
+                </label>
+                <label>Retroviolet
+                    <input type="checkbox" />
+                </label>
+                <label>Confetti
+                    <input type="checkbox" />
+                </label>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Offsets</mat-expansion-panel-header>
+            <div class="acc-content">
+                <label>RGB Split 
+                    <input type="checkbox" />
+                </label>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Red Offset:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox" />
+                        </label>
+                    </div>
+                    <div style="margin-bottom: 0">
+                        <label for="offsetRedVal">Value: </label>
+                        <input type="range" min="-5" max="100" step="5" name="offsetRedVal" />
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Green Offset:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox" />
+                        </label>
+                    </div>
+                    <div style="margin-bottom: 0">
+                        <label for="offsetGreenVal">Value: </label>
+                        <input type="range" min="-100" max="100" step="5" name="offsetGreenVal" />
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Blue Offset:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox" />
+                        </label>
+                    </div>
+                    <div style="margin-bottom: 0">
+                        <label for="offsetBlueVal">Value: </label>
+                        <input type="range" min="-100" max="100" step="5" name="offsetBlueVal" />
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Inversions</mat-expansion-panel-header>
+            <div class="acc-content">
+                <label>Invert
+                    <input type="checkbox" />
+                </label>
+                <label>Neue
+                    <input type="checkbox" />
+                </label>
+                <label>Lix
+                    <input type="checkbox" />
+                </label>
+                <label>Ryo
+                    <input type="checkbox" />
+                </label>
+                <label>Solange
+                    <input type="checkbox" />
+                </label>
+                <label>Cool Twilight
+                    <input type="checkbox" />
+                </label>
+                <label>Mellow
+                    <input type="checkbox" />
+                </label>
+                <label>Eon
+                    <input type="checkbox" />
+                </label>
+                <label>Aeon
+                    <input type="checkbox" />
+                </label>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Tints</mat-expansion-panel-header>
+            <div class="acc-content">
+                <label>Red Effect 
+                    <input type="checkbox" />
+                </label>
+                <label>Perfume
+                    <input type="checkbox" />
+                </label>
+                <label>Serenity
+                    <input type="checkbox" />
+                </label>
+                <label>Pink Aura
+                    <input type="checkbox" />
+                </label>
+                <label>Radio
+                    <input type="checkbox" />
+                </label>
+                <div>
+                    <label for="sepia">Sepia: </label>
+                    <input type="range" min="0" max="1" step="0.1" name="sepia" />
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Opacity & Blur</mat-expansion-panel-header>
+            <div class="acc-content">
+                <div>
+                    <label for="blur">Blur: </label>
+                    <input type="range" min="0" max="10" step="1" name="blur" />
+                </div>
+                <div>
+                    <label for="opacity">
+                        <span>Opacity: </span>
+                        <mat-icon 
+                            aria-hidden="false" aria-label="info icon" fontIcon="info"
+                            matTooltip="Values less than 1 can reveal a background color." matTooltipPosition="right" matTooltipClass="right-tooltip"
+                            class="info-icon"
+                        ></mat-icon>
+                    </label>
+                    <input type="range" min="0" max="1" step="0.1" name="opacity" />
+                </div>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">
+                        <span>Background Color: </span>
+                        <mat-icon 
+                            aria-hidden="false" aria-label="info icon" fontIcon="info"
+                            matTooltip="For this effect to be visible the 'opacity' must be less than 1." matTooltipPosition="right" matTooltipClass="right-tooltip"
+                            class="info-icon"
+                        ></mat-icon>
+                    </p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="bkgColorVal">Value: </label>
+                        <input type="color" name="bkgColorVal" />
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Hues</mat-expansion-panel-header>
+            <div class="acc-content">
+                <div>
+                    <label for="hueRotate">Hue-rotate: </label>
+                    <input type="range" min="0" max="360" step="10" name="hueRotate" />
+                </div>
+                <label>Frontward
+                    <input type="checkbox" />
+                </label>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Gamma</mat-expansion-panel-header>
+            <div class="acc-content">
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Full Gamma:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply
+                            <input type="checkbox" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="gammaVal">Value: </label>
+                        <input type="range" min="2" max="15" step="1" name="gammaVal" />
+                    </div>
+                </div>
+                <label>Red Gamma
+                    <input type="checkbox" />
+                </label>
+                <label>Green Gamma
+                    <input type="checkbox" />
+                </label>
+                <label>Yellow Gamma
+                    <input type="checkbox" />
+                </label>
+                <label>Purple Gamma
+                    <input type="checkbox" />
+                </label>
+                <label>Blue-Red Gamma
+                    <input type="checkbox" />
+                </label>
+                <label>Teal Gamma
+                    <input type="checkbox" />
+                </label>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="acc-panel">
+            <mat-expansion-panel-header>Other</mat-expansion-panel-header>
+            <div class="acc-content">
+                <label>Diagonal Lines
+                    <input type="checkbox" />
+                </label>
+                <label>Crimson
+                    <input type="checkbox" />
+                </label>
+                <label>Lemon
+                    <input type="checkbox" />
+                </label>
+                <label>Vintage
+                    <input type="checkbox" />
+                </label>
+                <label>Haze
+                    <input type="checkbox" />
+                </label>
+                <label>Horizon
+                    <input type="checkbox" />
+                </label>
+                <label>Grime
+                    <input type="checkbox" />
+                </label>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Threshold:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="thresholdVal">Value: </label>
+                        <input type="range" min="0" max="255" step="5" name="thresholdVal" />
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
 </aside>

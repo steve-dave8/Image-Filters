@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-filters',
@@ -7,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
   @Input() showFilterMenu: boolean = false;
+
+  @ViewChild(MatAccordion) accordion: MatAccordion = {} as MatAccordion;
 
   constructor() { }
 

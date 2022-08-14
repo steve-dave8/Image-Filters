@@ -11,7 +11,7 @@ p#filter-title {
     text-align: center;
     text-decoration: underline;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
     margin-top: 0;
 }
@@ -26,6 +26,74 @@ p#filter-title {
     visibility: visible;
     opacity: 1;
     transition: all 1s ease-in-out;
+}
+
+.acc-btn-container {
+    display: flex;
+    gap: 10px;
+    margin: 1rem auto;
+    justify-content: center;
+}
+
+.action-btn {
+    color: #1e3b59;
+}
+
+.acc-panel {
+    background-color: rgba(255,255,255,0.6) !important;
+}
+
+mat-expansion-panel-header {
+    font-size: 1rem;
+}
+
+.acc-content {
+    padding-top: 15px;
+    border-top: 2px solid #121212;
+    margin-top: -2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.acc-content > label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.flex-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-box {
+    padding: 0 5px;
+    border: 1px solid gray;
+}
+  
+.filter-box > * {
+    margin: 10px 0;
+}
+
+.filter-box input[type="range"] {
+    padding: 0 5px;
+    width: calc(100% - 15px);
+}
+
+.info-icon {
+    vertical-align: bottom;
+    border-radius: 50%;
+}
+
+.info-icon:hover {
+    color: #4d34fe;
 }
 
 @media screen and (max-width: 770px) {
