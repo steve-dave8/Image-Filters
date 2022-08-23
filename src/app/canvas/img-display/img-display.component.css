@@ -1,0 +1,21 @@
+#img-display-container {
+    min-height: 100%;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+figcaption {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+
+img, canvas {
+    max-height: calc(100% - 30px);
+    max-width: 100%;
+}

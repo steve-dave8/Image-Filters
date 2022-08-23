@@ -1,0 +1,4 @@
+<div>
+    <button type="button" class="btn-base load-btn block-center" (click)="uploadInput.click()">Upload Image</button>
+    <input type="file" accept="image/*" hidden #uploadInput (change)="handleImgChange($event)" />
+</div>

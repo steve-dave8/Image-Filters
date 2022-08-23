@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   showMenu: boolean = false;
   
-  toggleMenu(event : Event): void {
+  toggleMenu(event: Event): void {
     let menuBtnClasses = (event.target as HTMLInputElement).classList;
     if (menuBtnClasses.contains("spin-close")) {
       menuBtnClasses.remove("spin-close");

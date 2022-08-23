@@ -8,12 +8,18 @@ import { AppComponent } from './app.component';
 import { FiltersComponent } from './filters/filters.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UploadComponent } from './canvas/upload/upload.component';
+import { DownloadComponent } from './canvas/download/download.component';
+import { ImgDisplayComponent } from './canvas/img-display/img-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FiltersComponent,
-    CanvasComponent
+    CanvasComponent,
+    UploadComponent,
+    DownloadComponent,
+    ImgDisplayComponent
   ],
   imports: [
     BrowserModule,

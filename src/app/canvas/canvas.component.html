@@ -1,1 +1,5 @@
-
+<main>
+    <app-upload (newImgSrc)="originalImgUrl = $event"></app-upload>
+    <app-img-display [originalImgUrl]="originalImgUrl"></app-img-display>
+    <app-download></app-download>
+</main>
