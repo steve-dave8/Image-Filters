@@ -51,7 +51,7 @@ app-canvas {
 }
 /*--------------------*/
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1024px) {
     .settings {
         display: block;
     }

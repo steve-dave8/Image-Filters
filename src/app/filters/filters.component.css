@@ -94,7 +94,7 @@ input[type="checkbox"] {
     color: #4d34fe;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1024px) {
     aside {
         position: absolute;
         z-index: 2;
