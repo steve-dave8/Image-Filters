@@ -16,10 +16,6 @@ p#filter-title {
     margin-top: 0;
 }
 
-.reset-btn {
-    color: #8c420c;
-}
-
 .reveal {
     visibility: visible;
     opacity: 1;

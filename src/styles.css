@@ -46,6 +46,10 @@ app-root {
     color: #165016;
 }
 
+.reset-btn {
+    color: #8c420c;
+}
+
 .right-tooltip {
     overflow: visible !important;
     margin: 0 0 0 calc(var(--tooltip-arrow-width) + 5px) !important;

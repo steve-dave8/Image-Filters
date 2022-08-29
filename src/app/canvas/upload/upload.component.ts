@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -7,6 +7,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+  @Input() originalImgUrl: SafeUrl = "";
   @Output() newImgSrc = new EventEmitter<SafeUrl>();
 
   handleImgChange = (event: Event): void => {
@@ -19,6 +20,10 @@ export class UploadComponent implements OnInit {
         this.newImgSrc.emit(this.sanitizer.bypassSecurityTrustUrl(imgSrc));
       }
     }
+  };
+
+  removeImage = (): void => {
+    this.newImgSrc.emit("");
   };
 
   constructor(private sanitizer: DomSanitizer) { }

@@ -1,4 +1,5 @@
-<div>
-    <button type="button" class="btn-base load-btn block-center" (click)="uploadInput.click()">Upload Image</button>
+<div class="flex-center">
+    <button type="button" class="btn-base load-btn" (click)="uploadInput.click()">Upload Image</button>
     <input type="file" accept="image/*" hidden #uploadInput (change)="handleImgChange($event)" />
+    <button *ngIf="originalImgUrl" type="button" class="btn-base reset-btn" (click)="removeImage()">Clear Selection</button>
 </div>
