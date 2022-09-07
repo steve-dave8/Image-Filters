@@ -5,7 +5,7 @@ import { FilterTypes, FiltersState, initialFiltersState } from 'src/assets/initi
   providedIn: 'root'
 })
 export class FilterService {
-  filters: FiltersState = initialFiltersState;
+  filters: FiltersState = {...initialFiltersState};
   
   updateFilter = (event: Event, property: string): void => {
     const input = (event.target as HTMLInputElement);
@@ -21,5 +21,9 @@ export class FilterService {
     }
 
     this.filters[property] = newValue;
+  }
+
+  reset = (): void => {
+    this.filters = {...initialFiltersState};
   }
 }
