@@ -1,7 +1,11 @@
-interface filtersState {
+type FilterTypes = number | boolean | string;
+
+interface FiltersState {
+    [index: string]: FilterTypes;
     brightness: number;
     contrast: number;
     saturate: number;
+    greyscale: number;
     redGreyscale: boolean;
     greenGreyscale: boolean;
     blueGreyscale: boolean;
@@ -65,10 +69,11 @@ interface filtersState {
     thresholdVal: number;
 };
 
-const initialFiltersState: filtersState = {
+const initialFiltersState: FiltersState = {
     brightness: 1,
     contrast: 1,
     saturate: 1,
+    greyscale: 0,
     redGreyscale: false,
     greenGreyscale: false,
     blueGreyscale: false,
@@ -132,4 +137,4 @@ const initialFiltersState: filtersState = {
     thresholdVal: 100
 };
 
-export { filtersState, initialFiltersState }
+export { FilterTypes, FiltersState, initialFiltersState }

@@ -10,21 +10,26 @@
         <button type="button" class="btn-base action-btn" (click)="accordion.closeAll()">Collapse All</button>
     </div>
     <mat-accordion multi>
-        <!--TODO: add default values for inputs-->
         <mat-expansion-panel class="acc-panel">
             <mat-expansion-panel-header>General</mat-expansion-panel-header>
             <div class="acc-content">
                 <div>
-                    <label for="brightness">Brightness: </label>
-                    <input type="range" min="0" max="2" step="0.1" name="brightness" />
+                    <label for="brightness">Brightness: {{filterService.filters.brightness}}</label>
+                    <input type="range" min="0" max="2" step="0.1" name="brightness" 
+                        [value]="filterService.filters.brightness" (input)="filterService.updateFilter($event, 'brightness')"
+                    />
                 </div>
                 <div>
-                    <label for="contrast">Contrast: </label>
-                    <input type="range" min="0" max="2" step="0.1" name="contrast" />
+                    <label for="contrast">Contrast: {{filterService.filters.contrast}}</label>
+                    <input type="range" min="0" max="2" step="0.1" name="contrast" 
+                        [value]="filterService.filters.contrast" (input)="filterService.updateFilter($event, 'contrast')"
+                    />
                 </div>
                 <div>
-                    <label for="saturate">Saturate: </label>
-                    <input type="range" min="0" max="2" step="0.1" name="saturate" />
+                    <label for="saturate">Saturate: {{filterService.filters.saturate}}</label>
+                    <input type="range" min="0" max="2" step="0.1" name="saturate" 
+                        [value]="filterService.filters.saturate" (input)="filterService.updateFilter($event, 'saturate')"
+                    />
                 </div>
             </div>
         </mat-expansion-panel>
@@ -32,23 +37,25 @@
             <mat-expansion-panel-header>Greyscales</mat-expansion-panel-header>
             <div class="acc-content">
                 <div>
-                    <label for="grayscale">Greyscale: </label>
-                    <input type="range" min="0" max="1" step="0.1" name="grayscale" />
+                    <label for="greyscale">Greyscale: </label>
+                    <input type="range" min="0" max="1" step="0.1" name="greyscale" 
+                        [value]="filterService.filters.greyscale" (input)="filterService.updateFilter($event, 'greyscale')"
+                    />
                 </div>
                 <label>Red Greyscale
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.redGreyscale" (change)="filterService.updateFilter($event, 'redGreyscale')" />
                 </label>
                 <label>Green Greyscale
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.greenGreyscale" (change)="filterService.updateFilter($event, 'greenGreyscale')" />
                 </label>
                 <label>Blue Greyscale
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.blueGreyscale" (change)="filterService.updateFilter($event, 'blueGreyscale')" />
                 </label>
                 <label>Purple Greyscale
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.purplescale" (change)="filterService.updateFilter($event, 'purplescale')" />
                 </label>
                 <label>Twenties
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.twenties" (change)="filterService.updateFilter($event, 'twenties')" />
                 </label>
             </div>
         </mat-expansion-panel>
@@ -59,40 +66,44 @@
                     <p style="text-decoration: underline">White Noise:</p>
                     <div>
                         <label class="flex-checkbox">Apply 
-                            <input type="checkbox"  />
+                            <input type="checkbox"
+                                [checked]="filterService.filters.whiteNoise" (change)="filterService.updateFilter($event, 'whiteNoise')"
+                            />
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
                         <label for="whiteNoiseVal">Value: </label>
-                        <input type="range" min="12" max="90" step="1" name="whiteNoiseVal" />
+                        <input type="range" min="12" max="90" step="1" name="whiteNoiseVal" 
+                            [value]="filterService.filters.whiteNoiseVal" (input)="filterService.updateFilter($event, 'whiteNoiseVal')"
+                        />
                     </div>
                 </div>
                 <label>Specks Redscale
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.specksredscale" (change)="filterService.updateFilter($event, 'specksredscale')" />
                 </label>
                 <label>Green Specks
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.greenSpecks" (change)="filterService.updateFilter($event, 'greenSpecks')" />
                 </label>
                 <label>Red Casino
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.redCasino" (change)="filterService.updateFilter($event, 'redCasino')" />
                 </label>
                 <label>Yellow Casino
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.yellowCasino" (change)="filterService.updateFilter($event, 'yellowCasino')" />
                 </label>
                 <label>Matrix
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.matrix" (change)="filterService.updateFilter($event, 'matrix')" />
                 </label>
                 <label>Eclectic
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.eclectic" (change)="filterService.updateFilter($event, 'eclectic')" />
                 </label>
                 <label>Cosmic
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.cosmic" (change)="filterService.updateFilter($event, 'cosmic')" />
                 </label>
                 <label>Retroviolet
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.retroviolet" (change)="filterService.updateFilter($event, 'retroviolet')" />
                 </label>
                 <label>Confetti
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.confetti" (change)="filterService.updateFilter($event, 'confetti')" />
                 </label>
             </div>
         </mat-expansion-panel>
@@ -100,42 +111,48 @@
             <mat-expansion-panel-header>Offsets</mat-expansion-panel-header>
             <div class="acc-content">
                 <label>RGB Split 
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.rgbSplit" (change)="filterService.updateFilter($event, 'rgbSplit')" />
                 </label>
                 <div class="filter-box">
                     <p style="text-decoration: underline">Red Offset:</p>
                     <div>
                         <label class="flex-checkbox">Apply 
-                            <input type="checkbox" />
+                            <input type="checkbox" [checked]="filterService.filters.offsetRed" (change)="filterService.updateFilter($event, 'offsetRed')" />
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
                         <label for="offsetRedVal">Value: </label>
-                        <input type="range" min="-5" max="100" step="5" name="offsetRedVal" />
+                        <input type="range" min="-5" max="100" step="5" name="offsetRedVal" 
+                            [value]="filterService.filters.offsetRedVal" (input)="filterService.updateFilter($event, 'offsetRedVal')"
+                        />
                     </div>
                 </div>
                 <div class="filter-box">
                     <p style="text-decoration: underline">Green Offset:</p>
                     <div>
                         <label class="flex-checkbox">Apply 
-                            <input type="checkbox" />
+                            <input type="checkbox" [checked]="filterService.filters.offsetGreen" (change)="filterService.updateFilter($event, 'offsetGreen')" />
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
                         <label for="offsetGreenVal">Value: </label>
-                        <input type="range" min="-100" max="100" step="5" name="offsetGreenVal" />
+                        <input type="range" min="-100" max="100" step="5" name="offsetGreenVal"
+                            [value]="filterService.filters.offsetGreenVal" (input)="filterService.updateFilter($event, 'offsetGreenVal')"
+                        />
                     </div>
                 </div>
                 <div class="filter-box">
                     <p style="text-decoration: underline">Blue Offset:</p>
                     <div>
                         <label class="flex-checkbox">Apply 
-                            <input type="checkbox" />
+                            <input type="checkbox" [checked]="filterService.filters.offsetBlue" (change)="filterService.updateFilter($event, 'offsetBlue')" />
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
                         <label for="offsetBlueVal">Value: </label>
-                        <input type="range" min="-100" max="100" step="5" name="offsetBlueVal" />
+                        <input type="range" min="-100" max="100" step="5" name="offsetBlueVal" 
+                            [value]="filterService.filters.offsetBlueVal" (input)="filterService.updateFilter($event, 'offsetBlueVal')"
+                        />
                     </div>
                 </div>
             </div>
@@ -144,31 +161,31 @@
             <mat-expansion-panel-header>Inversions</mat-expansion-panel-header>
             <div class="acc-content">
                 <label>Invert
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.invert" (change)="filterService.updateFilter($event, 'invert')" />
                 </label>
                 <label>Neue
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.neue" (change)="filterService.updateFilter($event, 'neue')" />
                 </label>
                 <label>Lix
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.lix" (change)="filterService.updateFilter($event, 'lix')" />
                 </label>
                 <label>Ryo
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.ryo" (change)="filterService.updateFilter($event, 'ryo')" />
                 </label>
                 <label>Solange
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.solange" (change)="filterService.updateFilter($event, 'solange')" />
                 </label>
                 <label>Cool Twilight
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.coolTwilight" (change)="filterService.updateFilter($event, 'coolTwilight')" />
                 </label>
                 <label>Mellow
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.mellow" (change)="filterService.updateFilter($event, 'mellow')" />
                 </label>
                 <label>Eon
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.eon" (change)="filterService.updateFilter($event, 'eon')" />
                 </label>
                 <label>Aeon
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.aeon" (change)="filterService.updateFilter($event, 'aeon')" />
                 </label>
             </div>
         </mat-expansion-panel>
@@ -176,23 +193,25 @@
             <mat-expansion-panel-header>Tints</mat-expansion-panel-header>
             <div class="acc-content">
                 <label>Red Effect 
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.redEffect" (change)="filterService.updateFilter($event, 'redEffect')" />
                 </label>
                 <label>Perfume
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.perfume" (change)="filterService.updateFilter($event, 'perfume')" />
                 </label>
                 <label>Serenity
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.serenity" (change)="filterService.updateFilter($event, 'serenity')" />
                 </label>
                 <label>Pink Aura
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.pinkAura" (change)="filterService.updateFilter($event, 'pinkAura')" />
                 </label>
                 <label>Radio
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.radio" (change)="filterService.updateFilter($event, 'radio')" />
                 </label>
                 <div>
                     <label for="sepia">Sepia: </label>
-                    <input type="range" min="0" max="1" step="0.1" name="sepia" />
+                    <input type="range" min="0" max="1" step="0.1" name="sepia"
+                        [value]="filterService.filters.sepia" (input)="filterService.updateFilter($event, 'sepia')"
+                    />
                 </div>
             </div>
         </mat-expansion-panel>
@@ -201,7 +220,9 @@
             <div class="acc-content">
                 <div>
                     <label for="blur">Blur: </label>
-                    <input type="range" min="0" max="10" step="1" name="blur" />
+                    <input type="range" min="0" max="10" step="1" name="blur"
+                        [value]="filterService.filters.blur" (input)="filterService.updateFilter($event, 'blur')"
+                    />
                 </div>
                 <div>
                     <label for="opacity">
@@ -212,7 +233,9 @@
                             class="info-icon"
                         ></mat-icon>
                     </label>
-                    <input type="range" min="0" max="1" step="0.1" name="opacity" />
+                    <input type="range" min="0" max="1" step="0.1" name="opacity"
+                        [value]="filterService.filters.opacity" (input)="filterService.updateFilter($event, 'opacity')"
+                    />
                 </div>
                 <div class="filter-box">
                     <p style="text-decoration: underline">
@@ -225,12 +248,14 @@
                     </p>
                     <div>
                         <label class="flex-checkbox">Apply 
-                            <input type="checkbox" />
+                            <input type="checkbox" [checked]="filterService.filters.bkgColor" (change)="filterService.updateFilter($event, 'bkgColor')" />
                         </label>
                     </div>
                     <div>
                         <label for="bkgColorVal">Value: </label>
-                        <input type="color" name="bkgColorVal" />
+                        <input type="color" name="bkgColorVal"
+                            [value]="filterService.filters.bkgColorVal" (input)="filterService.updateFilter($event, 'bkgColorVal')"
+                        />
                     </div>
                 </div>
             </div>
@@ -240,10 +265,12 @@
             <div class="acc-content">
                 <div>
                     <label for="hueRotate">Hue-rotate: </label>
-                    <input type="range" min="0" max="360" step="10" name="hueRotate" />
+                    <input type="range" min="0" max="360" step="10" name="hueRotate"
+                        [value]="filterService.filters.hueRotate" (input)="filterService.updateFilter($event, 'hueRotate')"
+                    />
                 </div>
                 <label>Frontward
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.frontward" (change)="filterService.updateFilter($event, 'frontward')" />
                 </label>
             </div>
         </mat-expansion-panel>
@@ -254,31 +281,33 @@
                     <p style="text-decoration: underline">Full Gamma:</p>
                     <div>
                         <label class="flex-checkbox">Apply
-                            <input type="checkbox" />
+                            <input type="checkbox" [checked]="filterService.filters.gamma" (change)="filterService.updateFilter($event, 'gamma')" />
                         </label>
                     </div>
                     <div>
                         <label for="gammaVal">Value: </label>
-                        <input type="range" min="2" max="15" step="1" name="gammaVal" />
+                        <input type="range" min="2" max="15" step="1" name="gammaVal"
+                            [value]="filterService.filters.gammaVal" (input)="filterService.updateFilter($event, 'gammaVal')"
+                        />
                     </div>
                 </div>
                 <label>Red Gamma
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.redGamma" (change)="filterService.updateFilter($event, 'redGamma')" />
                 </label>
                 <label>Green Gamma
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.greenGamma" (change)="filterService.updateFilter($event, 'greenGamma')" />
                 </label>
                 <label>Yellow Gamma
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.yellowGamma" (change)="filterService.updateFilter($event, 'yellowGamma')" />
                 </label>
                 <label>Purple Gamma
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.purpleGamma" (change)="filterService.updateFilter($event, 'purpleGamma')" />
                 </label>
                 <label>Blue-Red Gamma
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.blueRedGamma" (change)="filterService.updateFilter($event, 'blueRedGamma')" />
                 </label>
                 <label>Teal Gamma
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.blueGreenGamma" (change)="filterService.updateFilter($event, 'blueGreenGamma')" />
                 </label>
             </div>
         </mat-expansion-panel>
@@ -286,36 +315,38 @@
             <mat-expansion-panel-header>Other</mat-expansion-panel-header>
             <div class="acc-content">
                 <label>Diagonal Lines
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.diagonalLines" (change)="filterService.updateFilter($event, 'diagonalLines')" />
                 </label>
                 <label>Crimson
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.crimson" (change)="filterService.updateFilter($event, 'crimson')" />
                 </label>
                 <label>Lemon
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.lemon" (change)="filterService.updateFilter($event, 'lemon')" />
                 </label>
                 <label>Vintage
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.vintage" (change)="filterService.updateFilter($event, 'vintage')" />
                 </label>
                 <label>Haze
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.haze" (change)="filterService.updateFilter($event, 'haze')" />
                 </label>
                 <label>Horizon
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.horizon" (change)="filterService.updateFilter($event, 'horizon')" />
                 </label>
                 <label>Grime
-                    <input type="checkbox" />
+                    <input type="checkbox" [checked]="filterService.filters.grime" (change)="filterService.updateFilter($event, 'grime')" />
                 </label>
                 <div class="filter-box">
                     <p style="text-decoration: underline">Threshold:</p>
                     <div>
                         <label class="flex-checkbox">Apply 
-                            <input type="checkbox" />
+                            <input type="checkbox" [checked]="filterService.filters.threshold" (change)="filterService.updateFilter($event, 'threshold')" />
                         </label>
                     </div>
                     <div>
                         <label for="thresholdVal">Value: </label>
-                        <input type="range" min="0" max="255" step="5" name="thresholdVal" />
+                        <input type="range" min="0" max="255" step="5" name="thresholdVal"
+                            [value]="filterService.filters.thresholdVal" (input)="filterService.updateFilter($event, 'thresholdVal')"
+                        />
                     </div>
                 </div>
             </div>

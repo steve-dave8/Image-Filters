@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
+import { FilterService } from '../filter.service';
 
 @Component({
   selector: 'app-filters',
@@ -11,7 +12,7 @@ export class FiltersComponent implements OnInit {
 
   @ViewChild(MatAccordion) accordion: MatAccordion = {} as MatAccordion;
 
-  constructor() { }
+  constructor(public filterService: FilterService) { }
 
   ngOnInit(): void {
   }
