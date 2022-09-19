@@ -1,6 +1,9 @@
 import { Component, OnInit, OnChanges, OnDestroy, Input, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
 import { debounce } from '../../util/debounce';
+import { FilterService } from 'src/app/filter.service';
+import { applyFilters, getCTXfilters } from 'src/assets/applyFilters';
+import { FiltersState } from 'src/assets/initialFiltersState';
 
 @Component({
   selector: 'app-img-display',
@@ -33,7 +36,21 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
 
   debouncedResize = debounce(this.resize, 30);
 
-  constructor() { }
+  paintCanvas = (img: any, canvas: any, filters: FiltersState): void => {
+    const ctx = canvas.getContext('2d');
+
+    // Apply filters from Canvas 2D API:
+    const ctxFilter = getCTXfilters(filters);
+    ctx.filter = ctxFilter;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    // Apply additional filters:
+    let pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    applyFilters(pixels, filters);
+    ctx.putImageData(pixels, 0, 0);
+  }
+
+  constructor(private filterService: FilterService) { }
 
   ngOnInit(): void {
     this.imgDisplayContainer = document.getElementById("img-display-container");
@@ -41,7 +58,15 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
     this.bottomBar = document.querySelector("app-download");
     this.resize();
     window.addEventListener('resize', this.debouncedResize);
+    // TODO: replace deprecated orientationchange event:
     window.addEventListener("orientationchange", this.resize);
+    this.filterService.filterSubject.subscribe({
+      next: (filters: FiltersState) => {
+        if (this.originalImgUrl) {
+          this.paintCanvas(this.originalImg.nativeElement, this.canvas.nativeElement, filters);
+        }
+      }
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -49,16 +74,16 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
       const { originalImgUrl } = changes;
       if (originalImgUrl.currentValue && originalImgUrl.currentValue !== originalImgUrl.previousValue) {
         const baseCanvas = this.canvas.nativeElement;
-        const ctx = baseCanvas.getContext('2d');
         const baseImage = this.originalImg.nativeElement;
         [baseCanvas.width, baseCanvas.height] = [baseImage.width * 2.5, baseImage.height * 2.5]; // multiply to improve resolution
-        ctx?.drawImage(baseImage, 0, 0, baseCanvas.width, baseCanvas.height);
+        this.paintCanvas(baseImage, baseCanvas, this.filterService.filters);
       }
     }, 100);
   }
 
   ngOnDestroy(): void {
     window.removeEventListener('resize', this.debouncedResize);
+    // TODO: replace deprecated orientationchange event:
     window.removeEventListener("orientationchange", this.resize);
   }
 
