@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { FilterTypes, FiltersState, initialFiltersState } from 'src/assets/initialFiltersState';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
   filters: FiltersState = {...initialFiltersState};
+
+  filterSubject = new Subject<FiltersState>();
   
   updateFilter = (event: Event, property: string): void => {
     const input = (event.target as HTMLInputElement);
@@ -21,9 +24,11 @@ export class FilterService {
     }
 
     this.filters[property] = newValue;
+    this.filterSubject.next(this.filters);
   }
 
   reset = (): void => {
     this.filters = {...initialFiltersState};
+    this.filterSubject.next(this.filters);
   }
 }

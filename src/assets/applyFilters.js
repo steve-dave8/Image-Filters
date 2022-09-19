@@ -7,8 +7,7 @@ import {gamma, bluegreen_gamma, purple_gamma, yellow_gamma, bluered_gamma, green
 import {rgbSplit, offset_green, offset_blue, offset_red} from "./filter-functions/offsets";
 import {frontward} from "./filter-functions/frontward";
 
-const applyFilters = (pixels, filters, ctx) => {
-    let filterString = [];
+const applyFilters = (pixels, filters) => {
     Object.entries(filters).forEach(([key, value]) => {
         switch (key) {
             case "redEffect":
@@ -17,45 +16,8 @@ const applyFilters = (pixels, filters, ctx) => {
             case "rgbSplit":
                 if (value) pixels = rgbSplit(pixels);
                 break;
-            case "invert":
-                if (value) filterString.push('invert(1)');
-                break;
-            case "ghost":
-                if (value) {
-                    ctx.globalAlpha = 0.15;
-                } else {
-                    ctx.globalAlpha = 1;
-                }
-                break;
-            case "blur":
-                if (value !== 0) filterString.push(`blur(${value}px)`);
-                break;
-            case "brightness":
-                if (value !== 1) filterString.push(`brightness(${value})`);
-                break;
-            case "contrast":
-                if (value !== 1) filterString.push(`contrast(${value})`);
-                break;
-            case "grayscale":
-                if (value !== 0) filterString.push(`grayscale(${value})`);
-                break;
-            case "hueRotate":
-                if (value !== 0 && value !== 360) filterString.push(`hue-rotate(${value}deg)`);
-                break;
-            case "opacity":
-                if (value !== 1) filterString.push(`opacity(${value})`);
-                break;
-            case "saturate":
-                if (value !== 1) filterString.push(`saturate(${value})`);
-                break;
-            case "sepia":
-                if (value !== 0) filterString.push(`sepia(${value})`);
-                break;
             case "threshold":
                 if (value) pixels = threshold(pixels, filters.thresholdVal);
-                break;
-            case "bkgColor":
-                if (value) filterString.push(`drop-shadow(0 0 ${filters.bkgColorVal})`);
                 break;
             case "specksredscale":
                 if (value) pixels = specksredscale(pixels);
@@ -196,7 +158,47 @@ const applyFilters = (pixels, filters, ctx) => {
                 //do nothing
         }
     });
-    ctx.filter = filterString.join(' ');
 };
 
-export {applyFilters}
+const getCTXfilters = (filters) => {
+    let filterString = [];
+    Object.entries(filters).forEach(([key, value]) => {
+        switch (key) {
+            case "invert":
+                if (value) filterString.push('invert(1)');
+                break;
+            case "blur":
+                if (value !== 0) filterString.push(`blur(${value}px)`);
+                break;
+            case "brightness":
+                if (value !== 1) filterString.push(`brightness(${value})`);
+                break;
+            case "contrast":
+                if (value !== 1) filterString.push(`contrast(${value})`);
+                break;
+            case "grayscale":
+                if (value !== 0) filterString.push(`grayscale(${value})`);
+                break;
+            case "hueRotate":
+                if (value !== 0 && value !== 360) filterString.push(`hue-rotate(${value}deg)`);
+                break;
+            case "opacity":
+                if (value !== 1) filterString.push(`opacity(${value})`);
+                break;
+            case "saturate":
+                if (value !== 1) filterString.push(`saturate(${value})`);
+                break;
+            case "sepia":
+                if (value !== 0) filterString.push(`sepia(${value})`);
+                break;
+            case "bkgColor":
+                if (value) filterString.push(`drop-shadow(0 0 ${filters.bkgColorVal})`);
+            default:
+                //do nothing
+        }
+    });
+    const ctxFilter = filterString.length ? filterString.join(' ') : "none";
+    return ctxFilter;
+};
+
+export { applyFilters, getCTXfilters }
