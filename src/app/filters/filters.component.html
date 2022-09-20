@@ -38,7 +38,7 @@
             <mat-expansion-panel-header>Greyscales</mat-expansion-panel-header>
             <div class="acc-content">
                 <div>
-                    <label for="greyscale">Greyscale: </label>
+                    <label for="greyscale">Greyscale: {{filterService.filters.greyscale}}</label>
                     <input type="range" min="0" max="1" step="0.1" name="greyscale" 
                         [value]="filterService.filters.greyscale" (input)="filterService.updateFilter($event, 'greyscale')"
                     />
@@ -73,7 +73,7 @@
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
-                        <label for="whiteNoiseVal">Value: </label>
+                        <label for="whiteNoiseVal">Value: {{filterService.filters.whiteNoiseVal}}</label>
                         <input type="range" min="12" max="90" step="1" name="whiteNoiseVal" 
                             [value]="filterService.filters.whiteNoiseVal" (input)="filterService.updateFilter($event, 'whiteNoiseVal')"
                         />
@@ -122,7 +122,7 @@
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
-                        <label for="offsetRedVal">Value: </label>
+                        <label for="offsetRedVal">Value: {{filterService.filters.offsetRedVal}}</label>
                         <input type="range" min="-5" max="100" step="5" name="offsetRedVal" 
                             [value]="filterService.filters.offsetRedVal" (input)="filterService.updateFilter($event, 'offsetRedVal')"
                         />
@@ -136,7 +136,7 @@
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
-                        <label for="offsetGreenVal">Value: </label>
+                        <label for="offsetGreenVal">Value: {{filterService.filters.offsetGreenVal}}</label>
                         <input type="range" min="-100" max="100" step="5" name="offsetGreenVal"
                             [value]="filterService.filters.offsetGreenVal" (input)="filterService.updateFilter($event, 'offsetGreenVal')"
                         />
@@ -150,7 +150,7 @@
                         </label>
                     </div>
                     <div style="margin-bottom: 0">
-                        <label for="offsetBlueVal">Value: </label>
+                        <label for="offsetBlueVal">Value: {{filterService.filters.offsetBlueVal}}</label>
                         <input type="range" min="-100" max="100" step="5" name="offsetBlueVal" 
                             [value]="filterService.filters.offsetBlueVal" (input)="filterService.updateFilter($event, 'offsetBlueVal')"
                         />
@@ -209,7 +209,7 @@
                     <input type="checkbox" [checked]="filterService.filters.radio" (change)="filterService.updateFilter($event, 'radio')" />
                 </label>
                 <div>
-                    <label for="sepia">Sepia: </label>
+                    <label for="sepia">Sepia: {{filterService.filters.sepia}}</label>
                     <input type="range" min="0" max="1" step="0.1" name="sepia"
                         [value]="filterService.filters.sepia" (input)="filterService.updateFilter($event, 'sepia')"
                     />
@@ -220,14 +220,14 @@
             <mat-expansion-panel-header>Opacity & Blur</mat-expansion-panel-header>
             <div class="acc-content">
                 <div>
-                    <label for="blur">Blur: </label>
+                    <label for="blur">Blur: {{filterService.filters.blur}}px</label>
                     <input type="range" min="0" max="10" step="1" name="blur"
                         [value]="filterService.filters.blur" (input)="filterService.updateFilter($event, 'blur')"
                     />
                 </div>
                 <div>
                     <label for="opacity">
-                        <span>Opacity: </span>
+                        <span>Opacity: {{filterService.filters.opacity}} </span>
                         <mat-icon 
                             aria-hidden="false" aria-label="info icon" fontIcon="info"
                             matTooltip="Values less than 1 can reveal a background color." matTooltipPosition="right" matTooltipClass="right-tooltip"
@@ -253,7 +253,7 @@
                         </label>
                     </div>
                     <div>
-                        <label for="bkgColorVal">Value: </label>
+                        <label for="bkgColorVal">Value: {{filterService.filters.bkgColorVal}}</label>
                         <input type="color" name="bkgColorVal"
                             [value]="filterService.filters.bkgColorVal" (input)="filterService.updateFilter($event, 'bkgColorVal')"
                         />
@@ -265,7 +265,7 @@
             <mat-expansion-panel-header>Hues</mat-expansion-panel-header>
             <div class="acc-content">
                 <div>
-                    <label for="hueRotate">Hue-rotate: </label>
+                    <label for="hueRotate">Hue-rotate: {{filterService.filters.hueRotate}} deg</label>
                     <input type="range" min="0" max="360" step="10" name="hueRotate"
                         [value]="filterService.filters.hueRotate" (input)="filterService.updateFilter($event, 'hueRotate')"
                     />
@@ -286,7 +286,7 @@
                         </label>
                     </div>
                     <div>
-                        <label for="gammaVal">Value: </label>
+                        <label for="gammaVal">Value: {{filterService.filters.gammaVal}}</label>
                         <input type="range" min="2" max="15" step="1" name="gammaVal"
                             [value]="filterService.filters.gammaVal" (input)="filterService.updateFilter($event, 'gammaVal')"
                         />
@@ -344,7 +344,7 @@
                         </label>
                     </div>
                     <div>
-                        <label for="thresholdVal">Value: </label>
+                        <label for="thresholdVal">Value: {{filterService.filters.thresholdVal}}</label>
                         <input type="range" min="0" max="255" step="5" name="thresholdVal"
                             [value]="filterService.filters.thresholdVal" (input)="filterService.updateFilter($event, 'thresholdVal')"
                         />

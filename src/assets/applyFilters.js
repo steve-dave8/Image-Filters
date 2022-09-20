@@ -1,6 +1,6 @@
 import {purplescale, twenties_imgdata, redgreyscale, greengreyscale, blue_greyscale} from "./filter-functions/greyscales";
 import {specksredscale, eclectic, green_specks, red_casino, yellow_casino, matrix_imgdata, cosmic_imgdata, retroviolet, white_noise, confetti_imgdata} from "./filter-functions/noise&specks";
-import {neue, lix_conv, ryo_conv, solange, cool_twilight, mellow, eon_imgdata, aeon_imgdata} from "./filter-functions/colourInversions";
+import {neue, lix_conv, ryo_conv, solange, cool_twilight, mellow, eon_imgdata, aeon_imgdata, invert_imgdata} from "./filter-functions/colourInversions";
 import {redEffect, perfume, serenity, pink_aura, radio_imgdata} from "./filter-functions/colourTints";
 import {add_diagonal_lines, crimson, lemon, vintage, haze_imgdata, horizon, grime, threshold} from "./filter-functions/otherFilters";
 import {gamma, bluegreen_gamma, purple_gamma, yellow_gamma, bluered_gamma, green_gamma, red_gamma} from "./filter-functions/gamma";
@@ -127,7 +127,7 @@ const applyFilters = (pixels, filters) => {
             case "gamma":
                 if (value) pixels = gamma(pixels, filters.gammaVal);
                 break;
-            case "bluegreenGamma":
+            case "blueGreenGamma":
                 if (value) pixels = bluegreen_gamma(pixels);
                 break;
             case "purpleGamma":
@@ -136,7 +136,7 @@ const applyFilters = (pixels, filters) => {
             case "yellowGamma":
                 if (value) pixels = yellow_gamma(pixels);
                 break;
-            case "blueredGamma":
+            case "blueRedGamma":
                 if (value) pixels = bluered_gamma(pixels);
                 break;
             case "greenGamma":
@@ -154,6 +154,9 @@ const applyFilters = (pixels, filters) => {
             case "offsetRed":
                 if (value) pixels = offset_red(pixels, filters.offsetRedVal);
                 break;
+            case "invert":
+                if (value) pixels = invert_imgdata(pixels);
+                break;
             default:
                 //do nothing
         }
@@ -164,9 +167,6 @@ const getCTXfilters = (filters) => {
     let filterString = [];
     Object.entries(filters).forEach(([key, value]) => {
         switch (key) {
-            case "invert":
-                if (value) filterString.push('invert(1)');
-                break;
             case "blur":
                 if (value !== 0) filterString.push(`blur(${value}px)`);
                 break;

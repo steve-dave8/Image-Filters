@@ -58,6 +58,15 @@ const aeon_imgdata = (imgData) => {
     return imgData;
 };
 
+const invert_imgdata = (imgData) => {
+    for (let i = 0; i < imgData.data.length; i += 4) {
+        imgData.data[i] = 255 - imgData.data[i];
+        imgData.data[i + 1] = 255 - imgData.data[i + 1];
+        imgData.data[i + 2] = 255 - imgData.data[i + 2];
+    }
+    return imgData;
+};
+
 export {
     neue,
     lix_conv,
@@ -66,5 +75,6 @@ export {
     cool_twilight,
     mellow,
     eon_imgdata,
-    aeon_imgdata
+    aeon_imgdata,
+    invert_imgdata
 }
