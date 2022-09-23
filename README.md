@@ -1,23 +1,22 @@
 # ImageFilters
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+## Description
 
-## Development server
+This is a client-side, single-page application made with Angular. It uses HTML5 Canvas to apply filters to an image uploaded by the user. The filtered image can then be downloaded afterwards.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Many of the filter functions used in this app are from [pixels.js](https://github.com/silvia-odwyer/pixels.js) and the experimental [CanvasRenderingContext2D.filter](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter).
 
-## Code scaffolding
+### Local Dev Environment
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+After cloning this repo, enter the following commands to run the app locally:
 
-## Build
+`npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`npm start` or `ng serve -o`
 
-## Running unit tests
+## Project Status
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project is at the point where it's functional now. Aside from minor updates/changes, here are some other things I would like to do:
+* add more filters
+* deploy this project as a static webpage on GitHub
+* add drag and drop for image upload
