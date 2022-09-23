@@ -4,7 +4,7 @@
 
 This is a client-side, single-page application made with Angular. It uses HTML5 Canvas to apply filters to an image uploaded by the user. The filtered image can then be downloaded afterwards.
 
-Many of the filter functions used in this app are from [pixels.js](https://github.com/silvia-odwyer/pixels.js) and the experimental [CanvasRenderingContext2D.filter](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter).
+Many of the filter functions used in this app are from [pixels.js](https://github.com/silvia-odwyer/pixels.js) and the experimental [CanvasRenderingContext2D.filter](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/filter). Sobel filter from https://github.com/miguelmota/sobel .
 
 ### Local Dev Environment
 

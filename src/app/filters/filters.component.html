@@ -350,6 +350,9 @@
                         />
                     </div>
                 </div>
+                <label>Sobel
+                    <input type="checkbox" [checked]="filterService.filters.sobel" (change)="filterService.updateFilter($event, 'sobel')" />
+                </label>
             </div>
         </mat-expansion-panel>
     </mat-accordion>

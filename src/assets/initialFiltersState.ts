@@ -67,6 +67,7 @@ interface FiltersState {
     grime: boolean;
     threshold: boolean;
     thresholdVal: number;
+    sobel: boolean;
 };
 
 const initialFiltersState: FiltersState = {
@@ -134,7 +135,8 @@ const initialFiltersState: FiltersState = {
     horizon: false,
     grime: false,
     threshold: false,
-    thresholdVal: 100
+    thresholdVal: 100,
+    sobel: false
 };
 
 export { FilterTypes, FiltersState, initialFiltersState }

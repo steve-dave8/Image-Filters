@@ -6,6 +6,7 @@ import {add_diagonal_lines, crimson, lemon, vintage, haze_imgdata, horizon, grim
 import {gamma, bluegreen_gamma, purple_gamma, yellow_gamma, bluered_gamma, green_gamma, red_gamma} from "./filter-functions/gamma";
 import {rgbSplit, offset_green, offset_blue, offset_red} from "./filter-functions/offsets";
 import {frontward} from "./filter-functions/frontward";
+import {sobel} from "./filter-functions/sobel";
 
 const applyFilters = (pixels, filters) => {
     Object.entries(filters).forEach(([key, value]) => {
@@ -156,6 +157,9 @@ const applyFilters = (pixels, filters) => {
                 break;
             case "invert":
                 if (value) pixels = invert_imgdata(pixels);
+                break;
+            case "sobel":
+                if (value) pixels = sobel(pixels);
                 break;
             default:
                 //do nothing
