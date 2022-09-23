@@ -1,15 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-download',
   templateUrl: './download.component.html',
   styleUrls: ['./download.component.css']
 })
-export class DownloadComponent implements OnInit {
+export class DownloadComponent {
+  @ViewChild('downloadLink') downloadLink!: ElementRef;
+  downloadName: string = "filtered-img.png";
+  newImgNumber: number = 0;
+  filteredImgSrc: string = "";
 
-  constructor() { }
+  download = (): void => {
+    const currentCanvas = document.querySelector("canvas");
+    if (!currentCanvas) return;
 
-  ngOnInit(): void {
+    this.filteredImgSrc = currentCanvas.toDataURL("image/png");
+    if (this.newImgNumber > 0) {
+      this.downloadName = `filtered-img-${this.newImgNumber}.png`;
+    }
+    this.newImgNumber += 1;
+
+    // Use timeout to make sure anchor element has the latest property bindings:
+    setTimeout(() => {
+      this.downloadLink.nativeElement.click();
+    }, 0);
   }
 
+  constructor() { }
 }

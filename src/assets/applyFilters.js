@@ -25,7 +25,7 @@ const applyFilters = (pixels, filters) => {
             case "eclectic":
                 if (value) pixels = eclectic(pixels);
                 break;
-            case "addDiagonalLines":
+            case "diagonalLines":
                 if (value) pixels = add_diagonal_lines(pixels);
                 break;
             case "greenSpecks":
