@@ -1,6 +1,6 @@
 <div id="img-display-container" #imgDisplayContainer class="flex-center"
     [style.flex-direction]="height > width ? 'column' : 'row'"
-    [style.height]="height > width ? adjustedHeight : null"
+    [style.height]="adjustedHeight"
 >
     <ng-template [ngIf]="originalImgUrl">
         <figure [style.max-height]="height > width ? 'calc(50% - 2rem)' : null">

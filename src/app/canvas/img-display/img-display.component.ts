@@ -21,15 +21,14 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
   height: number = 0;
   width: number = 0;
   adjustedHeight: string = "";
+  screenOrientation: MediaQueryList = window.matchMedia("(orientation: portrait)");
 
   handleImgLoad = (): void => {
     URL.revokeObjectURL(this.originalImgUrl as string);
   }
 
   resize = (): void => {
-    if (this.imgDisplayContainer!.clientHeight > this.imgDisplayContainer!.clientWidth) {
-      this.adjustedHeight = `calc(100vh - ${this.topBar?.clientHeight}px - ${this.bottomBar?.clientHeight}px)`;
-    }
+    this.adjustedHeight = `calc(100vh - ${this.topBar?.clientHeight}px - ${this.bottomBar?.clientHeight}px)`;
     this.height = this.imgDisplayContainer!.clientHeight;
     this.width = this.imgDisplayContainer!.clientWidth;
   }
@@ -56,10 +55,10 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
     this.imgDisplayContainer = document.getElementById("img-display-container");
     this.topBar = document.querySelector("app-upload");
     this.bottomBar = document.querySelector("app-download");
-    this.resize();
+
     window.addEventListener('resize', this.debouncedResize);
-    // TODO: replace deprecated orientationchange event:
-    window.addEventListener("orientationchange", this.resize);
+    this.screenOrientation.addEventListener("change", this.resize);
+
     this.filterService.filterSubject.subscribe({
       next: (filters: FiltersState) => {
         if (this.originalImgUrl) {
@@ -83,8 +82,7 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy(): void {
     window.removeEventListener('resize', this.debouncedResize);
-    // TODO: replace deprecated orientationchange event:
-    window.removeEventListener("orientationchange", this.resize);
+    this.screenOrientation.removeEventListener("change", this.resize);
   }
 
 }
