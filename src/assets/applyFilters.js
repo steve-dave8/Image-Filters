@@ -7,6 +7,7 @@ import {gamma, bluegreen_gamma, purple_gamma, yellow_gamma, bluered_gamma, green
 import {rgbSplit, offset_green, offset_blue, offset_red} from "./filter-functions/offsets";
 import {frontward} from "./filter-functions/frontward";
 import {sobel} from "./filter-functions/sobel";
+import {pixelate} from "./filter-functions/pixelate";
 
 const applyFilters = (pixels, filters) => {
     Object.entries(filters).forEach(([key, value]) => {
@@ -160,6 +161,9 @@ const applyFilters = (pixels, filters) => {
                 break;
             case "sobel":
                 if (value) pixels = sobel(pixels);
+                break;
+            case "pixelate":
+                if (value) pixels = pixelate(pixels, filters.pixelateVal);
                 break;
             default:
                 //do nothing

@@ -350,6 +350,20 @@
                         />
                     </div>
                 </div>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Pixelate:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox" [checked]="filterService.filters.pixelate" (change)="filterService.updateFilter($event, 'pixelate')" />
+                        </label>
+                    </div>
+                    <div>
+                        <label for="pixelateVal">Block Size: {{filterService.filters.pixelateVal}}px<sup>2</sup></label>
+                        <input type="range" min="4" max="40" step="2" name="pixelateVal"
+                            [value]="filterService.filters.pixelateVal" (input)="filterService.updateFilter($event, 'pixelateVal')"
+                        />
+                    </div>
+                </div>
                 <label>Sobel
                     <input type="checkbox" [checked]="filterService.filters.sobel" (change)="filterService.updateFilter($event, 'sobel')" />
                 </label>

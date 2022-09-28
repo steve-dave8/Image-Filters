@@ -68,6 +68,8 @@ interface FiltersState {
     threshold: boolean;
     thresholdVal: number;
     sobel: boolean;
+    pixelate: boolean;
+    pixelateVal: number;
 };
 
 const initialFiltersState: FiltersState = {
@@ -136,7 +138,9 @@ const initialFiltersState: FiltersState = {
     grime: false,
     threshold: false,
     thresholdVal: 100,
-    sobel: false
+    sobel: false,
+    pixelate: false,
+    pixelateVal: 10
 };
 
 export { FilterTypes, FiltersState, initialFiltersState }
