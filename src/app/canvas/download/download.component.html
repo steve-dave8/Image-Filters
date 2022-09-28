@@ -1,5 +1,6 @@
 <div>
     <p class="text-center">Download filtered image:</p>
+    <!--TODO: add disabled attribute for download btn-->
     <button type="button" class="btn-base load-btn block-center" (click)="download()">Download</button>
     <a id="download-link" #downloadLink [download]="downloadName" [href]="filteredImgSrc"></a>
 </div>
