@@ -1,5 +1,7 @@
 # ImageFilters
 
+Demo at https://steve-dave8.github.io/Image-Filters/
+
 ## Description
 
 This is a single-page application made with Angular. It uses HTML5 Canvas to apply filters to an image uploaded by the user. The filtered image can then be downloaded afterwards.
@@ -22,5 +24,4 @@ After cloning this repo, enter the following commands to run the app locally:
 
 This project is at the point where it's functional now. Aside from minor updates/changes, here are some other things I would like to do:
 * add more filters
-* deploy this project as a static webpage on GitHub
 * add drag and drop for image upload
