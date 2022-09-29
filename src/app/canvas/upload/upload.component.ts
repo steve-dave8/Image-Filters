@@ -9,6 +9,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class UploadComponent implements OnInit {
   @Input() originalImgUrl: SafeUrl = "";
   @Output() newImgSrc = new EventEmitter<SafeUrl>();
+  @Output() newImgName = new EventEmitter<string>();
 
   handleImgChange = (event: Event): void => {
     const input = (event.target as HTMLInputElement);
@@ -16,6 +17,8 @@ export class UploadComponent implements OnInit {
       const image = input.files[0];
       const isValid = image.type.match(/^(image\/).+/);
       if (isValid) {
+        const imgName = image.name.replace(/(\.[a-zA-Z]+)$/, ""); // removes file extension
+        this.newImgName.emit(imgName);
         const imgSrc = URL.createObjectURL(image);
         this.newImgSrc.emit(this.sanitizer.bypassSecurityTrustUrl(imgSrc));
       }
@@ -24,6 +27,7 @@ export class UploadComponent implements OnInit {
 
   removeImage = (): void => {
     this.newImgSrc.emit("");
+    this.newImgName.emit("");
   };
 
   constructor(private sanitizer: DomSanitizer) { }

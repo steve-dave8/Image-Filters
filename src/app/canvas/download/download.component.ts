@@ -1,24 +1,23 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-download',
   templateUrl: './download.component.html',
   styleUrls: ['./download.component.css']
 })
-export class DownloadComponent {
+export class DownloadComponent implements OnChanges {
+  @Input() originalImgName: string = "";
   @ViewChild('downloadLink') downloadLink!: ElementRef;
   downloadName: string = "filtered-img.png";
   newImgNumber: number = 0;
   filteredImgSrc: string = "";
 
   download = (): void => {
+    if (!this.originalImgName) return;
     const currentCanvas = document.querySelector("canvas");
-    if (!currentCanvas) return;
-
-    this.filteredImgSrc = currentCanvas.toDataURL("image/png");
-    if (this.newImgNumber > 0) {
-      this.downloadName = `filtered-img-${this.newImgNumber}.png`;
-    }
+    this.filteredImgSrc = currentCanvas!.toDataURL("image/png");
+    const numString = this.newImgNumber ? `-${this.newImgNumber}` : "";
+    this.downloadName = `${this.originalImgName}--filtered${numString}.png`;
     this.newImgNumber += 1;
 
     // Use timeout to make sure anchor element has the latest property bindings:
@@ -28,4 +27,11 @@ export class DownloadComponent {
   }
 
   constructor() { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const { originalImgName } = changes;
+    if (originalImgName.currentValue !== originalImgName.previousValue) {
+      this.newImgNumber = 0;
+    }
+  }
 }

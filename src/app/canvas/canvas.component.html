@@ -1,5 +1,5 @@
 <main>
-    <app-upload (newImgSrc)="originalImgUrl = $event" [originalImgUrl]="originalImgUrl"></app-upload>
+    <app-upload (newImgSrc)="originalImgUrl = $event" (newImgName)="originalImgName = $event" [originalImgUrl]="originalImgUrl"></app-upload>
     <app-img-display [originalImgUrl]="originalImgUrl"></app-img-display>
-    <app-download></app-download>
+    <app-download [originalImgName]="originalImgName"></app-download>
 </main>

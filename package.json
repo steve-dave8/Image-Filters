@@ -1,6 +1,9 @@
 {
   "name": "image-filters",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Steven David White",
+  "description": "Image filter SPA using Angular.",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
@@ -9,7 +12,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
     "@angular/cdk": "^14.1.1",

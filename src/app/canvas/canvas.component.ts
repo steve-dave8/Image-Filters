@@ -8,6 +8,7 @@ import { SafeUrl } from '@angular/platform-browser';
 })
 export class CanvasComponent implements OnInit {
   originalImgUrl: SafeUrl = "";
+  originalImgName: string = "";
 
   constructor() { }
 
