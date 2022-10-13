@@ -72,10 +72,14 @@ interface FiltersState {
     pixelateVal: number;
 };
 
+// Note: the order of the properties below can affect how the filters interact with each other.
 const initialFiltersState: FiltersState = {
     brightness: 1,
     contrast: 1,
     saturate: 1,
+    threshold: false,
+    thresholdVal: 100,
+    sobel: false,
     greyscale: 0,
     redGreyscale: false,
     greenGreyscale: false,
@@ -136,9 +140,6 @@ const initialFiltersState: FiltersState = {
     haze: false,
     horizon: false,
     grime: false,
-    threshold: false,
-    thresholdVal: 100,
-    sobel: false,
     pixelate: false,
     pixelateVal: 10
 };
