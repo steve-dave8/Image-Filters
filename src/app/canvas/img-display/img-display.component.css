@@ -1,3 +1,8 @@
+app-img-dropbox {
+    flex: 1;
+    align-self: stretch;
+}
+
 #img-display-container {
     min-height: 100%;
 }

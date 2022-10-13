@@ -1,0 +1,23 @@
+#img-dropbox {
+    height: 80%;
+    width: 80%;
+    border: 2px dashed #404040;
+    transition: background-color 0.5s;
+}
+
+#img-dropbox > p {
+    margin: 0;
+    color: #1e3b59;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#img-dropbox.no-drop {
+    border: 3px dashed #fe0a0a;
+    background-color: rgba(254, 10, 10, 0.1);
+}
+
+#img-dropbox.droppable {
+    border: 3px dashed rgb(0, 128, 0);
+    background-color: rgba(0, 128, 0, 0.1);
+}

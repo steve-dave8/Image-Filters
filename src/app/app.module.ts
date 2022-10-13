@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UploadComponent } from './canvas/upload/upload.component';
 import { DownloadComponent } from './canvas/download/download.component';
 import { ImgDisplayComponent } from './canvas/img-display/img-display.component';
+import { ImgDropboxComponent } from './canvas/img-display/img-dropbox/img-dropbox.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ImgDisplayComponent } from './canvas/img-display/img-display.component'
     CanvasComponent,
     UploadComponent,
     DownloadComponent,
-    ImgDisplayComponent
+    ImgDisplayComponent,
+    ImgDropboxComponent
   ],
   imports: [
     BrowserModule,

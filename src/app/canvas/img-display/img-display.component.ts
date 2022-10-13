@@ -1,6 +1,6 @@
-import { Component, OnInit, OnChanges, OnDestroy, Input, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, OnDestroy, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
-import { debounce } from '../../util/debounce';
+import { debounce } from 'src/app/util/debounce';
 import { FilterService } from 'src/app/filter.service';
 import { applyFilters, getCTXfilters } from 'src/assets/applyFilters';
 import { FiltersState } from 'src/assets/initialFiltersState';
@@ -14,6 +14,8 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
   @Input() originalImgUrl: SafeUrl = "";
   @ViewChild('originalImg') originalImg!: ElementRef;
   @ViewChild('canvas') canvas!: ElementRef;
+  @Output() passImgName2 = new EventEmitter<string>();
+  @Output() passImgSrc2 = new EventEmitter<SafeUrl>();
 
   imgDisplayContainer?: HTMLElement | null;
   topBar?: HTMLElement | null;
@@ -22,6 +24,14 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
   width: number = 0;
   adjustedHeight: string = "";
   screenOrientation: MediaQueryList = window.matchMedia("(orientation: portrait)");
+
+  passImgName = (event: string) => {
+    this.passImgName2.emit(event);
+  }
+
+  passImgSrc = (event: SafeUrl) => {
+    this.passImgSrc2.emit(event);
+  }
 
   handleImgLoad = (): void => {
     URL.revokeObjectURL(this.originalImgUrl as string);

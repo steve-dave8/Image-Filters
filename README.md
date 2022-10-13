@@ -24,4 +24,5 @@ After cloning this repo, enter the following commands to run the app locally:
 
 This project is at the point where it's functional now. Aside from minor updates/changes, here are some other things I would like to do:
 * add more filters
-* add drag and drop for image upload
+* improve mobile layout
+* add modal for app information
