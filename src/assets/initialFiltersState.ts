@@ -13,6 +13,11 @@ interface FiltersState {
     twenties: boolean;
     whiteNoise: boolean;
     whiteNoiseVal: number;
+    blackNoise: boolean;
+    blackNoiseVal: number;
+    customNoise: boolean;
+    customNoiseVal: number;
+    customNoiseColor: string;
     specksredscale: boolean;
     greenSpecks: boolean;
     redCasino: boolean;
@@ -88,6 +93,11 @@ const initialFiltersState: FiltersState = {
     twenties: false,
     whiteNoise: false,
     whiteNoiseVal: 15,
+    blackNoise: false,
+    blackNoiseVal: 15,
+    customNoise: false,
+    customNoiseVal: 15,
+    customNoiseColor: "#ff0000",
     specksredscale: false,
     greenSpecks: false,
     redCasino: false,

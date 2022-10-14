@@ -1,5 +1,5 @@
 import {purplescale, twenties_imgdata, redgreyscale, greengreyscale, blue_greyscale} from "./filter-functions/greyscales";
-import {specksredscale, eclectic, green_specks, red_casino, yellow_casino, matrix_imgdata, cosmic_imgdata, retroviolet, white_noise, confetti_imgdata} from "./filter-functions/noise&specks";
+import {specksredscale, eclectic, green_specks, red_casino, yellow_casino, matrix_imgdata, cosmic_imgdata, retroviolet, white_noise, confetti_imgdata, black_noise, custom_noise} from "./filter-functions/noise&specks";
 import {neue, lix_conv, ryo_conv, solange, cool_twilight, mellow, eon_imgdata, aeon_imgdata, invert_imgdata} from "./filter-functions/colourInversions";
 import {redEffect, perfume, serenity, pink_aura, radio_imgdata} from "./filter-functions/colourTints";
 import {add_diagonal_lines, crimson, lemon, vintage, haze_imgdata, horizon, grime, threshold} from "./filter-functions/otherFilters";
@@ -122,6 +122,12 @@ const applyFilters = (pixels, filters) => {
                 break;
             case "whiteNoise":
                 if (value) pixels = white_noise(pixels, filters.whiteNoiseVal);
+                break;
+            case "blackNoise":
+                if (value) pixels = black_noise(pixels, filters.blackNoiseVal);
+                break;
+            case "customNoise":
+                if (value) pixels = custom_noise(pixels, filters.customNoiseColor, filters.customNoiseVal);
                 break;
             case "confetti":
                 if (value) pixels = confetti_imgdata(pixels);

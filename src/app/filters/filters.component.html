@@ -79,6 +79,44 @@
                         />
                     </div>
                 </div>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Black Noise:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox"
+                                [checked]="filterService.filters.blackNoise" (change)="filterService.updateFilter($event, 'blackNoise')"
+                            />
+                        </label>
+                    </div>
+                    <div style="margin-bottom: 0">
+                        <label for="blackNoiseVal">Value: {{filterService.filters.blackNoiseVal}}</label>
+                        <input type="range" min="12" max="90" step="1" name="blackNoiseVal" 
+                            [value]="filterService.filters.blackNoiseVal" (input)="filterService.updateFilter($event, 'blackNoiseVal')"
+                        />
+                    </div>
+                </div>
+                <div class="filter-box">
+                    <p style="text-decoration: underline">Custom Noise:</p>
+                    <div>
+                        <label class="flex-checkbox">Apply 
+                            <input type="checkbox"
+                                [checked]="filterService.filters.customNoise" (change)="filterService.updateFilter($event, 'customNoise')"
+                            />
+                        </label>
+                    </div>
+                    <div style="margin-bottom: 0">
+                        <label for="customNoiseVal">Noise Value: {{filterService.filters.customNoiseVal}}</label>
+                        <input type="range" min="12" max="90" step="1" name="customNoiseVal" 
+                            [value]="filterService.filters.customNoiseVal" (input)="filterService.updateFilter($event, 'customNoiseVal')"
+                        />
+                    </div>
+                    <div style="margin-top: 0">
+                        <label for="customNoiseColor">Color Value: {{filterService.filters.customNoiseColor}}</label>
+                        <input type="color" name="customNoiseColor"
+                            [value]="filterService.filters.customNoiseColor" (input)="filterService.updateFilter($event, 'customNoiseColor')"
+                        />
+                    </div>
+                </div>
                 <label>Specks Redscale
                     <input type="checkbox" [checked]="filterService.filters.specksredscale" (change)="filterService.updateFilter($event, 'specksredscale')" />
                 </label>
