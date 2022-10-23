@@ -69,6 +69,10 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
     window.addEventListener('resize', this.debouncedResize);
     this.screenOrientation.addEventListener("change", this.resize);
 
+    setTimeout(() => {
+      this.resize();
+    }, 0);
+
     this.filterService.filterSubject.subscribe({
       next: (filters: FiltersState) => {
         if (this.originalImgUrl) {
@@ -84,7 +88,7 @@ export class ImgDisplayComponent implements OnInit, OnChanges, OnDestroy {
       if (originalImgUrl.currentValue && originalImgUrl.currentValue !== originalImgUrl.previousValue) {
         const baseCanvas = this.canvas.nativeElement;
         const baseImage = this.originalImg.nativeElement;
-        [baseCanvas.width, baseCanvas.height] = [baseImage.width * 2.5, baseImage.height * 2.5]; // multiply to improve resolution
+        [baseCanvas.width, baseCanvas.height] = [Math.floor(baseImage.naturalWidth), Math.floor(baseImage.naturalHeight)];
         this.paintCanvas(baseImage, baseCanvas, this.filterService.filters);
       }
     }, 100);

@@ -19,7 +19,7 @@ figure {
 }
 
 figcaption {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: bold;
     text-decoration: underline;
     padding-bottom: 10px;
@@ -28,4 +28,10 @@ figcaption {
 img, canvas {
     max-height: calc(100% - 30px);
     max-width: 100%;
+}
+
+@media screen and (max-width: 769px) {
+    app-img-dropbox {
+        display: none;
+    }
 }

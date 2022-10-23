@@ -10,6 +10,8 @@
     color: #1e3b59;
     font-weight: bold;
     padding: 10px;
+    font-size: 1.6rem;
+    text-align: center;
 }
 
 #img-dropbox.no-drop {

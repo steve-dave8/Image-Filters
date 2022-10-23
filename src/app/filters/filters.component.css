@@ -1,6 +1,6 @@
 aside {
     height: calc(100vh - 1rem);
-    width: 14rem;
+    width: 22rem;
     padding: 0.5rem 0.8rem;
     background-color: #bad2ff;
     border-right: 1px solid black;
@@ -11,20 +11,14 @@ p#filter-title {
     text-align: center;
     text-decoration: underline;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 2.2rem;
     margin-bottom: 10px;
-    margin-top: 0;
-}
-
-.reveal {
-    visibility: visible;
-    opacity: 1;
-    transition: all 1s ease-in-out;
+    margin-top: 5px;
 }
 
 .acc-btn-container {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     margin: 1rem auto;
     justify-content: center;
 }
@@ -38,7 +32,8 @@ p#filter-title {
 }
 
 mat-expansion-panel-header {
-    font-size: 1rem;
+    font-size: 1.6rem;
+    gap: 10px;
 }
 
 .acc-content {
@@ -47,7 +42,8 @@ mat-expansion-panel-header {
     margin-top: -2px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
+    font-size: 1.4rem;
 }
 
 .acc-content > label {
@@ -57,8 +53,17 @@ mat-expansion-panel-header {
 }
 
 input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-left: 10px;
+}
+
+input[type="range"] {
+    max-width: 95%;
+}
+
+input[type="color"] {
+   display: block;
 }
 
 .flex-checkbox {
@@ -78,7 +83,7 @@ input[type="checkbox"] {
 
 .filter-box input[type="range"] {
     padding: 0 5px;
-    width: calc(100% - 15px);
+    max-width: 90%;
 }
 
 .info-icon {
@@ -90,12 +95,29 @@ input[type="checkbox"] {
     color: #4d34fe;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 600px) {
     aside {
-        position: absolute;
-        z-index: 2;
-        visibility: hidden;
-        opacity: 0;
-        transition: all 1s ease-in-out;
+        width: 15rem;
+    }
+
+    aside button {
+        font-size: 1.2rem;
+    }
+
+    .acc-btn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    mat-expansion-panel-header {
+        padding: 0 10px;
+    }
+
+    .filter-box input[type="range"] {
+        max-width: 80%;
+    }
+
+    .info-icon {
+        font-size: 20px;
     }
 }

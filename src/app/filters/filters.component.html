@@ -1,4 +1,4 @@
-<aside [class.reveal]="showFilterMenu">
+<aside>
     <p id="filter-title">Filters</p>
     <button type="button" class="btn-base reset-btn block-center"
         matTooltip="Reset all filters." matTooltipPosition="right" matTooltipClass="right-tooltip"
@@ -381,7 +381,7 @@
                             <input type="checkbox" [checked]="filterService.filters.threshold" (change)="filterService.updateFilter($event, 'threshold')" />
                         </label>
                     </div>
-                    <div>
+                    <div style="margin-bottom: 0">
                         <label for="thresholdVal">Value: {{filterService.filters.thresholdVal}}</label>
                         <input type="range" min="0" max="255" step="5" name="thresholdVal"
                             [value]="filterService.filters.thresholdVal" (input)="filterService.updateFilter($event, 'thresholdVal')"
@@ -395,7 +395,7 @@
                             <input type="checkbox" [checked]="filterService.filters.pixelate" (change)="filterService.updateFilter($event, 'pixelate')" />
                         </label>
                     </div>
-                    <div>
+                    <div style="margin-bottom: 0">
                         <label for="pixelateVal">Block Size: {{filterService.filters.pixelateVal}}px<sup>2</sup></label>
                         <input type="range" min="4" max="40" step="2" name="pixelateVal"
                             [value]="filterService.filters.pixelateVal" (input)="filterService.updateFilter($event, 'pixelateVal')"

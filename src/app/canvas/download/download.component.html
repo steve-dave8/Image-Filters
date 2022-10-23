@@ -1,5 +1,5 @@
 <div>
-    <p class="text-center">Download filtered image:</p>
+    <p style="font-size: 1.4rem" class="text-center">Download filtered image:</p>
     <button type="button" class="btn-base load-btn block-center" (click)="download()" [disabled]="!originalImgName">Download</button>
     <a id="download-link" #downloadLink [download]="downloadName" [href]="filteredImgSrc"></a>
 </div>
