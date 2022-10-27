@@ -10,7 +10,7 @@ Many of the filter functions used in this app are from [pixels.js](https://githu
 
 ### Background
 
-I'm teaching myself Angular and I like to learn through doing projects. I wanted to pick a project idea that was similar to something I have done before but not exactly the same. So I based this on my [Webcam Filters](https://gitlab.com/steve-dave8/webcam-filters) that I created with React.
+I'm teaching myself Angular and I like to learn through doing projects. I wanted to pick a project idea that was similar to something I have done before but not exactly the same. So I based this on my [Webcam Filters](https://gitlab.com/steve-dave8/webcam-filters) app that I created with React.
 
 ### Local Dev Environment
 
@@ -19,10 +19,3 @@ After cloning this repo, enter the following commands to run the app locally:
 `npm install`
 
 `npm start` or `ng serve -o`
-
-## Project Status
-
-This project is at the point where it's functional now. Aside from minor updates/changes, here are some other things I would like to do:
-* add more filters
-* improve mobile layout
-* add modal for app information
