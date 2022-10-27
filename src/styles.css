@@ -15,6 +15,27 @@ app-root {
     display: flex;
 }
 
+h2, h3 {
+    text-decoration: underline;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+ul, ol {
+    padding-inline-start: 25px;
+}
+
+li {
+    font-size: 1.5rem;
+}
+
 .text-center {
     text-align: center;
 }
@@ -64,6 +85,14 @@ app-root {
     color: #8c420c;
 }
 
+.info-btn {
+    color: #8e2525;
+}
+
+.action-btn {
+    color: #1e3b59;
+}
+
 .right-tooltip {
     overflow: visible !important;
     margin: 0 0 0 calc(var(--tooltip-arrow-width) + 5px) !important;
@@ -82,6 +111,10 @@ app-root {
     position: absolute;
     top: calc(50% - var(--tooltip-arrow-width));
     left: calc(-1 * var(--tooltip-arrow-width));
+}
+
+.mat-dialog-container {
+    background-color: #f5f5f0;
 }
 
 @media screen and (max-width: 600px) {

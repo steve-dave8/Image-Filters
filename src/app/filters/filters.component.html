@@ -1,5 +1,8 @@
 <aside>
     <p id="filter-title">Filters</p>
+    <button type="button" class="btn-base info-btn block-center" (click)="openInfoModal()">
+        App Info
+    </button>
     <button type="button" class="btn-base reset-btn block-center"
         matTooltip="Reset all filters." matTooltipPosition="right" matTooltipClass="right-tooltip"
         (click)="filterService.reset()"

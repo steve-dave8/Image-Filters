@@ -1,0 +1,26 @@
+h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: -12px;
+    margin-bottom: 1.8rem;
+    text-align: center;
+}
+
+mat-dialog-content {
+    background-color: #fff;
+    padding: 5px 10px;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+.top-level-list > li:not(:first-child) {
+    padding-top: 10px;
+}
+
+.sub-list > li {
+    padding-top: 5px;
+}

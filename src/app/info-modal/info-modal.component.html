@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Image Filters App</h1>
+
+<mat-dialog-content>
+    <h2>Usage</h2>
+    <p>Summary: upload an image, apply filters, and download the image with filters applied.</p>
+    <ol class="top-level-list" style="padding-bottom: 10px;">
+        <li>
+            Upload an image file using one of these methods:
+            <ul class="sub-list">
+                <li>click the upload button at the top <span style="font-style: italic">(Desktop, Mobile)</span></li>
+                <li>drag and drop an image onto the designated drop area <span style="font-style: italic">(Desktop)</span></li>
+            </ul>
+        </li>
+        <li>
+            Using the toolbar on the left, apply filters to the uploaded image.
+        </li>
+        <li>
+            Click the download button at the bottom to download the filtered image (png file type).
+        </li>
+        <li>
+            Repeat to generate more filtered images.
+            <ul class="sub-list" style="list-style-type: upper-alpha;">
+                <li>
+                    With the same image uploaded, change the active filters and download a different version of the image.
+                </li>
+                <li>
+                    Upload another image. The filters selected will automatically be applied upon upload. 
+                    This is useful if you want to apply the same filters to multiple images.
+                </li>
+            </ul>
+        </li>
+    </ol>
+    <h3>Notes</h3>
+    <ul class="top-level-list">
+        <li>
+            Filters can interact with each other in interesting ways. Experiment with mixing multiple filters for different effects.
+        </li>
+        <li>
+            Some filters do not work in all browsers.
+        </li>
+    </ul>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-dialog-close class="btn-base action-btn">Close</button>
+</mat-dialog-actions>
